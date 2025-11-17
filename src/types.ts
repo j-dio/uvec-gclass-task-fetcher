@@ -5,4 +5,5 @@ export interface Assignment {
   deadline: Date;
   link: string;
   status: 'not started' | 'pending' | 'completed';
+  subjectID: number;
 }

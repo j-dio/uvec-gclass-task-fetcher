@@ -1,7 +1,14 @@
+/**
+ * App.tsx
+ * Main application component for displaying assignments.
+ */
 import "./App.css";
 import type { Assignment } from "./types";
+import AssignmentCard from "./components/AssignmentCard";
 
 function App() {
+  // Sample assignments data
+  let ID = 0;
   const myAssignments: Assignment[] = [
     {
       subject: "Mathematics",
@@ -10,6 +17,7 @@ function App() {
       deadline: new Date("2024-06-10T23:59:00"),
       link: "http://example.com/algebra-homework",
       status: "not started" as const,
+      subjectID: ID++,
     },
     {
       subject: "History",
@@ -18,6 +26,7 @@ function App() {
       deadline: new Date("2024-06-15T23:59:00"),
       link: "http://example.com/ww2-essay",
       status: "pending" as const,
+      subjectID: ID++,
     },
     {
       subject: "Science",
@@ -26,24 +35,18 @@ function App() {
       deadline: new Date("2024-06-12T23:59:00"),
       link: "http://example.com/physics-lab-report",
       status: "completed" as const,
+      subjectID: ID++,
     },
   ];
 
   return (
+    // Render assignments
     <div>
       <h1>My Assignment Dashboard</h1>
       <ul>
         {myAssignments.map((assignment, index) => (
           <li key={index}>
-            <h2>
-              {assignment.title} ({assignment.subject})
-            </h2>
-            <p>{assignment.details}</p>
-            <p>Deadline: {assignment.deadline.toDateString()}</p>
-            <p>Status: {assignment.status}</p>
-            <a href={assignment.link} target="_blank" rel="noopener noreferrer">
-              View Assignment
-            </a>
+            <AssignmentCard assignment={assignment} />
           </li>
         ))}
       </ul>
