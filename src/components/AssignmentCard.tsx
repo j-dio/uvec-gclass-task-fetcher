@@ -2,7 +2,7 @@
 import React from "react";
 import type { Assignment } from "../types";
 import "./AssignmentCard.css";
-import "./App.css";
+import "../App.css";
 
 interface AssignmentCardProps {
   assignment: Assignment;
@@ -21,6 +21,6 @@ const AssignmentCard: React.FC<AssignmentCardProps> = ({ assignment }) => {
       </a>
     </div>
   );
-}
+};
 
 export default AssignmentCard;
